@@ -7,9 +7,29 @@ struct student
    int birth_year,birth_month,birth_day;
    int score;
 };
+void display(int n,struct student* ptr){
+
+    for (int i = 0; i < n; ++i) {
+printf("Name of student :");
+printf("%s\n " ,(ptr + i)->name);
+printf("ID :");
+printf("%d\n " ,(ptr + i)->ID);
+printf("birth_year:");
+printf("%d\n " ,(ptr + i)->birth_year);
+printf("birth_month:");
+printf("%d\n ", (ptr + i)->birth_month);
+printf("birth_day:");
+printf("%d\n " ,(ptr + i)->birth_day);
+printf("score:");
+printf("%d\n\n\n ", (ptr + i)->score);
+
+}
+}
+
+
 int main() {
   struct student *ptr;
-  int n;
+  int n;int x;int choice;
   printf("Enter the number of students: ");
   scanf("%d", &n);
 
@@ -30,23 +50,26 @@ int main() {
     scanf("%d",&(ptr + i)->score);
   }
 
-  printf("Displaying Information:\n");
-  for (int i = 0; i < n; ++i) {
-printf("Name of student :");
-printf("%s\n " ,(ptr + i)->name);
-printf("ID :");
-printf("%d\n " ,(ptr + i)->ID);
-printf("birth_year:");
-printf("%d\n " ,(ptr + i)->birth_year);
-printf("birth_month:");
-printf("%d\n ", (ptr + i)->birth_month);
-printf("birth_day:");
-printf("%d\n " ,(ptr + i)->birth_day);
-printf("score:");
-printf("%d\n\n\n ", (ptr + i)->score);
+printf("\nDo you want other insertion operations?\n1 for yes\n2 for no");
+    scanf("%d", &x);
+    if(x==1)
+    {
 
-  }
 
+    printf("1 to insert student at begin\n2  to insert student at end\n3 to insert student at middle\n4 to display all student details\n 0 for exit");
+    do
+    {
+        printf("\nEnter Choice: ");
+        scanf("%d", &choice);
+        switch (choice)
+        {
+
+            case 4:
+                display(n,ptr);
+                break;
+        }
+
+    } while (choice != 0);}
   free(ptr);
 
   return 0;
